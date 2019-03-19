@@ -3,7 +3,7 @@ package com.cduest.model;
 
 /**
  * ”√ªß¿‡
- * @author 49520
+ * @author 1630720115
  *
  */
 public class User {

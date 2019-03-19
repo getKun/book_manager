@@ -2,19 +2,22 @@ package com.cduest.impl;
 
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.cduest.dao.IUser;
+
+import com.cduest.dao.IUserLoginAndRegister;
+
 import com.cduest.model.User;
 import com.cduest.utils.JdbcUtil;
 
 /**
  * 用户登录注册jdbc
- * @author 49520
+ * @author 1630720115
  *
  */
-public class UserJdbc implements IUser {
+public class UserLoginAndRegisterJdbc implements IUserLoginAndRegister {
 
 	private Connection con=null;
 	private PreparedStatement ps=null;
@@ -62,12 +65,54 @@ public class UserJdbc implements IUser {
 		
 		String uid=user.getUid();
 		String pwd=user.getPwd();
-		
+		con=ju.getConnection();
+		String sql="INSERT INTO T_USER VALUES(?,?)";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, uid);
+			ps.setString(2, pwd);
+			int i=ps.executeUpdate();
+			if(i!=-1) {
+				//注册成功，返回true
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, null);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 
+	//注册前判断账号是否存在
 	@Override
 	public boolean registerJudge(User user) {
+		
+		String uid=user.getUid();
+		con=ju.getConnection();
+		String sql="SELECT UID FROM T_USER WHERE UID=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, uid);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				String dataUid=rs.getNString("uid");
+				if(dataUid.equals(uid)) {
+					//若账号已存在 返回为true 
+					return true;
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return false;
 	}

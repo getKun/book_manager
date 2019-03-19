@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 /**
  * jdbcπ§æﬂ¿‡
- * @author 49520
+ * @author 1630720115
  *
  */
 public class JdbcUtil {
@@ -28,7 +28,7 @@ public class JdbcUtil {
 	public  Connection getConnection() {
 		
 		try {
-			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mall", "root", "123456");
+			return DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Book", "root", "123456");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -2,7 +2,12 @@ package com.cduest.dao;
 
 import com.cduest.model.User;
 
-public interface IUser {
+/**
+ * ÓÃ»§µÇÂ¼×¢²ádao²ã
+ * @author 1630720115
+ *
+ */
+public interface IUserLoginAndRegister {
 
 	boolean login(User user);
 	boolean register(User user);

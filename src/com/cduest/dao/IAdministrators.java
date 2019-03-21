@@ -18,9 +18,9 @@ public interface IAdministrators extends IUserLoginAndRegister{
 	
 	boolean deleteUser(User user);
 	
-	List<User> queryAllUser();
+	List<Object> queryAllUser();
 	
-	List<Book> queryAllBook();
+	List<Object> queryAllBook();
 	
 	
 }

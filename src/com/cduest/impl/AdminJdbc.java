@@ -187,6 +187,26 @@ public class AdminJdbc implements IAdministrators{
 	//查询全部图书
 	@Override
 	public List<Object> queryAllBook() {
+		
+		con=ju.getConnection();
+		String sql="SELECT BID,AUTHOR,PRESS FROM T_BOOK";
+		try {
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				String dataBid=rs.getNString("bid");
+				String dataAuthor=rs.getNString("author");
+				String dataPress=rs.getNString("press");
+				Book book=new Book(dataBid, dataAuthor, dataPress);
+				list.add(book);
+				
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 

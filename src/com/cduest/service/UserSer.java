@@ -1,6 +1,8 @@
 package com.cduest.service;
 
+import com.cduest.dao.IUserBorrowBook;
 import com.cduest.dao.IUserLoginAndRegister;
+import com.cduest.model.Book;
 import com.cduest.model.User;
 
 /**
@@ -8,7 +10,7 @@ import com.cduest.model.User;
  * @author 1630720115
  *
  */
-public class UserSer implements IUserLoginAndRegister{
+public class UserSer implements IUserLoginAndRegister,IUserBorrowBook{
 
 	@Override
 	public boolean login(User user) {
@@ -24,6 +26,18 @@ public class UserSer implements IUserLoginAndRegister{
 
 	@Override
 	public boolean registerJudge(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean borrowBook(User user, Book book) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean returnBook(User user, Book book) {
 		// TODO Auto-generated method stub
 		return false;
 	}

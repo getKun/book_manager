@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cduest.impl.AdminJdbc;
+import com.cduest.impl.UserBorrowBook;
 import com.cduest.impl.UserLoginAndRegisterJdbc;
+import com.cduest.model.Book;
 import com.cduest.model.User;
 
 public class TheMainClass {
@@ -32,5 +34,16 @@ public class TheMainClass {
 //		for (Object u : list) {
 //			System.out.println(u.toString());
 //		}
+		
+//		List<Object> list=aj.queryAllBook();
+//		for (Object book : list) {
+//			System.out.println(book.toString());
+//		}
+		UserBorrowBook ubb=new UserBorrowBook();
+		User u=new User("123", "123");
+		Book b=new Book("234", "234", "234");
+		boolean b1=ubb.borrowBook(u, b);
+		System.out.println(b1);
+		
 	}
 }

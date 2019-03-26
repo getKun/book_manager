@@ -3,9 +3,9 @@ package com.cduest.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cduest.impl.AdminJdbc;
-import com.cduest.impl.UserBorrowBook;
-import com.cduest.impl.UserLoginAndRegisterJdbc;
+import com.cduest.dao.impl.AdminJdbc;
+import com.cduest.dao.impl.UserBorrowBook;
+import com.cduest.dao.impl.UserLoginAndRegisterJdbc;
 import com.cduest.model.Book;
 import com.cduest.model.User;
 

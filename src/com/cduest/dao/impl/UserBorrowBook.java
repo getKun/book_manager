@@ -64,9 +64,17 @@ public class UserBorrowBook implements IUserBorrowBook {
 		return false;
 	}
 
+	//还书
 	@Override
 	public boolean returnBook(User user, Book book) {
 		
+		return false;
+	}
+
+	//借书前判断书是否已借出
+	@Override
+	public boolean judgeBook(Book book) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

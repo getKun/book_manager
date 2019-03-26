@@ -33,13 +33,35 @@ public class UserSer implements IUserService{
 
 	@Override
 	public boolean register(User user) {
-		// TODO Auto-generated method stub
+
+		String uid=user.getUid();
+		String pwd=user.getPwd();
+		if(!uid.equals(null)&&!pwd.equals(null)) {
+			//首先判断账号是否已被注册
+			IUserLoginAndRegister ser=new UserLoginAndRegisterJdbc();
+			boolean b=ser.registerJudge(user);
+			//b为true时，账号已存在
+			if(b) {
+				return false;
+			}else {
+				//账号不存在时，执行注册流程
+				boolean boo=ser.register(user);
+				if(boo) {
+					//注册成功
+					return true;
+				}
+			}
+			
+		}
 		return false;
 	}
 
+	
+	//继承的判断账号是否存在的方法，现合并在注册service中
 	@Override
 	public boolean registerJudge(User user) {
-		// TODO Auto-generated method stub
+
+		
 		return false;
 	}
 
@@ -51,6 +73,12 @@ public class UserSer implements IUserService{
 
 	@Override
 	public boolean returnBook(User user, Book book) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean judgeBook(Book book) {
 		// TODO Auto-generated method stub
 		return false;
 	}

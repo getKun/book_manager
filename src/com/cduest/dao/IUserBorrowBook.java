@@ -13,4 +13,6 @@ public interface IUserBorrowBook {
 	boolean borrowBook(User user,Book book);
 	
 	boolean returnBook(User user,Book book) ;
+	
+	boolean judgeBook(Book book);
 }

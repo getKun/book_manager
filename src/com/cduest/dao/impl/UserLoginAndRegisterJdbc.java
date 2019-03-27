@@ -37,6 +37,7 @@ public class UserLoginAndRegisterJdbc implements IUserLoginAndRegister {
 			ps.setString(1, uid);
 			rs=ps.executeQuery();
 			while(rs.next()) {
+				
 				String dataUid=rs.getNString("uid");
 				String dataPwd=rs.getNString("pwd");
 				//如果数据库中uid对应的密码与用户输入的密码一致时，登录成功，返回true

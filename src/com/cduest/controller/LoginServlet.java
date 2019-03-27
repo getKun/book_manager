@@ -15,7 +15,7 @@ import com.cduest.service.impl.UserSer;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,6 +33,8 @@ public class LoginServlet extends HttpServlet {
 		/*
 		 * 登录成功后，session中存放user对象
 		 */
+		//中文乱码处理
+		request.setCharacterEncoding("UTF-8");
 		String uid=request.getParameter("uid");
 		String pwd=request.getParameter("pwd");
 		User user=new User(uid, pwd);

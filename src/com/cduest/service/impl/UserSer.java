@@ -21,7 +21,7 @@ public class UserSer implements IUserService{
 		String uid=user.getUid();
 		String pwd=user.getPwd();
 		//如果用户登录时输入的账号密码不为空时，调用dao层登录接口查看数据库中账户密码是否正确
-		if(!uid.equals(null)&&!pwd.equals(null)) {
+		if(!uid.equals(null)&&!pwd.equals(null)&&!uid.equals("")&&!pwd.equals("")) {
 			IUserLoginAndRegister login=new UserLoginAndRegisterJdbc();
 			boolean b=login.login(user);
 			//返回值为true或false
@@ -36,7 +36,7 @@ public class UserSer implements IUserService{
 
 		String uid=user.getUid();
 		String pwd=user.getPwd();
-		if(!uid.equals(null)&&!pwd.equals(null)) {
+		if(!uid.equals(null)&&!pwd.equals(null)&&!uid.equals("")&&!pwd.equals("")) {
 			//首先判断账号是否已被注册
 			IUserLoginAndRegister ser=new UserLoginAndRegisterJdbc();
 			boolean b=ser.registerJudge(user);
@@ -49,6 +49,9 @@ public class UserSer implements IUserService{
 				if(boo) {
 					//注册成功
 					return true;
+				}else {
+					//注册失败
+					return false;
 				}
 			}
 			

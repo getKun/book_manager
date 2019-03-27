@@ -68,12 +68,16 @@ public class UserSer implements IUserService{
 		return false;
 	}
 
+	
+	//ΩË È
 	@Override
 	public boolean borrowBook(User user, Book book) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	
+	//ªπ È
 	@Override
 	public boolean returnBook(User user, Book book) {
 		// TODO Auto-generated method stub

@@ -74,7 +74,35 @@ public class UserBorrowBook implements IUserBorrowBook {
 	//借书前判断书是否已借出
 	@Override
 	public boolean judgeBook(Book book) {
-		// TODO Auto-generated method stub
+
+		String bid=book.getBid();
+		con=ju.getConnection();
+		String sql="SELECT UID FROM T_BORROW WHERE BID=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, bid);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				//如果bid和uid同时存在，就证明书已被借出
+				String dataUid=rs.getNString("uid");
+				//uid不为空，说明书已被借出，返回true
+				if(!dataUid.equals(null)) {
+					return true;
+				}
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, rs);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		//书未被借出
 		return false;
 	}
 

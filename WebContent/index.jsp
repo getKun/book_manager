@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<!-- 当前页面仅用于测试登录注册功能，不代表最终样式 -->
+
 <%@ include file="loginAndRegisterHead.jsp" %>
 	
 	<div>

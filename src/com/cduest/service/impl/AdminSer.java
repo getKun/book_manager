@@ -31,9 +31,11 @@ public class AdminSer implements IAdminService{
 		return false;
 	}
 
+	//查询全部用户
 	@Override
 	public List<Object> queryAllUser() {
-		// TODO Auto-generated method stub
+
+		
 		return null;
 	}
 

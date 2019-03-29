@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session=request.getSession();
 			session.setAttribute("user", user);
-			request.getRequestDispatcher("main_page.jsp").forward(request, response);
+			request.getRequestDispatcher("personal.jsp").forward(request, response);
 			
 		}else {
 			//登录失败，刷新当前页面

@@ -9,3 +9,4 @@
 		String now=date.format(d);
 %> 
 当前时间：<%=now%></h4> 
+<hr />

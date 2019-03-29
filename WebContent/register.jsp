@@ -7,11 +7,19 @@
 <title>请注册</title>
 </head>
 <body>
-	<h1>注册</h1>
-	<form action="register" method="post">
-		账号<input type="text" name="uid"><br>
-		密码<input type="password" name="pwd"><br>
-		<input type="submit"  value="注册">
-	</form>
+
+	<%@ include file="loginAndRegisterHead.jsp" %>
+	<div>
+
+		<h1>注册</h1>
+		<form action="register" method="post">
+			账号<input type="text" name="uid"><br> 
+			密码<input type="password" name="pwd"><br> 
+			<input type="submit" value="注册">
+		</form>
+
+	<%@ include file="jspFoot.jsp" %>
+	
+	</div>
 </body>
 </html>

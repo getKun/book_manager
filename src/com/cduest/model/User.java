@@ -38,7 +38,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [ÕËºÅ=" + uid + ", ÃÜÂë=" + pwd + "]";
+		return "[ÕËºÅ£º"+uid+"£¬ÃÜÂë£º"+pwd+"]";
 	}
 	
 	

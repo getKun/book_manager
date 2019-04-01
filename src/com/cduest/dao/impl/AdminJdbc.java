@@ -23,7 +23,7 @@ public class AdminJdbc implements IAdministrators{
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private JdbcUtil ju=new JdbcUtil();
-	private List<Object> list=new ArrayList<Object>();
+	private ArrayList<Object> list=new ArrayList<Object>();
 
 	
 	//¹ÜÀíÔ±µÇÂ¼

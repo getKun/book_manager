@@ -1,7 +1,10 @@
 package com.cduest.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.cduest.dao.IAdministrators;
+import com.cduest.dao.impl.AdminJdbc;
 import com.cduest.model.Book;
 import com.cduest.model.User;
 import com.cduest.service.IAdminService;
@@ -12,6 +15,9 @@ import com.cduest.service.IAdminService;
  *
  */
 public class AdminSer implements IAdminService{
+	
+	IAdministrators admin=new AdminJdbc();
+	User user=new User();
 
 	@Override
 	public boolean addBook(Book book) {
@@ -35,14 +41,18 @@ public class AdminSer implements IAdminService{
 	@Override
 	public List<Object> queryAllUser() {
 
-		
-		return null;
+		ArrayList<Object> list=new ArrayList<Object>();
+		list=(ArrayList<Object>) admin.queryAllUser();
+		return list;
 	}
 
+	//查询全部图书
 	@Override
 	public List<Object> queryAllBook() {
-		// TODO Auto-generated method stub
-		return null;
+
+		ArrayList<Object> list=new ArrayList<Object>();
+		list=(ArrayList<Object>) admin.queryAllBook();
+		return list;
 	}
 
 	@Override

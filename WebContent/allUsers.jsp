@@ -8,8 +8,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-		
-
 <meta charset="UTF-8">
 <title>全部用户</title>
 </head>
@@ -35,20 +33,13 @@
 			<tr>
 				<td><%=user.getUid() %></td>
 				<td><%=user.getPwd() %></td>
+				<td><a href="DeleteUserServlet?uid=<%=user.getUid() %>" onclick="confirm('确定删除该用户?')">删除</a></td>
 			</tr>
 				<%	} %>
-			
-			
-
 		</table>
 	</div>
-	
-	
-	<div style="float: left;">
-		<a href="#">新增用户</a>
-	</div>
-	<div style="float: left; margin-left: 5px;">
-		<a href="#">删除用户</a>
+	<div>
+		${tips }<br>
 	</div>
 	<%@ include file="jspFoot.jsp" %>
 </body>

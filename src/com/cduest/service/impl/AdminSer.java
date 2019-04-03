@@ -31,10 +31,12 @@ public class AdminSer implements IAdminService{
 		return false;
 	}
 
+	//删除用户
 	@Override
 	public boolean deleteUser(User user) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean boo=admin.deleteUser(user);
+		return boo;
 	}
 
 	//查询全部用户

@@ -34,12 +34,10 @@
 				<td><%=user.getUid() %></td>
 				<td><%=user.getPwd() %></td>
 				<td><a href="DeleteUserServlet?uid=<%=user.getUid() %>" onclick="confirm('确定删除该用户?')">删除</a></td>
+				<td>${tips }</td>
 			</tr>
 				<%	} %>
 		</table>
-	</div>
-	<div>
-		${tips }<br>
 	</div>
 	<%@ include file="jspFoot.jsp" %>
 </body>

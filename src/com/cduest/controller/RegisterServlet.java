@@ -36,7 +36,7 @@ public class RegisterServlet extends HttpServlet {
 			HttpSession session=request.getSession();
 			session.setAttribute("user", user);
 			//跳转main_page
-			request.getRequestDispatcher("main_page.jsp").forward(request, response);
+			request.getRequestDispatcher("personal.jsp").forward(request, response);
 			
 		}else {
 			//注册失败，刷新当前页面

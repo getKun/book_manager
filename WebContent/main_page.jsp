@@ -19,7 +19,14 @@
 			<c:forEach items="${allBook }" var="book">
 				<tr>
 					<td>${book.bid }</td>
-					
+					<td>${book.author }</td>
+					<td>${book.press }</td>
+					<td>
+						<form action="BorrowBookServlet?bid=${book.bid }" method="post">
+							<input type="submit" value="借阅"
+								style="border: 0px; background-color: transparent; font-size: medium;">
+						</form>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

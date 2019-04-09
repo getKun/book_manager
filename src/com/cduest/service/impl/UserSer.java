@@ -1,6 +1,8 @@
 package com.cduest.service.impl;
 
+import com.cduest.dao.IUserBorrowBook;
 import com.cduest.dao.IUserLoginAndRegister;
+import com.cduest.dao.impl.UserBorrowBookJdbc;
 import com.cduest.dao.impl.UserLoginAndRegisterJdbc;
 import com.cduest.model.Book;
 import com.cduest.model.User;
@@ -72,8 +74,20 @@ public class UserSer implements IUserService{
 	//借书
 	@Override
 	public boolean borrowBook(User user, Book book) {
-		// TODO Auto-generated method stub
-		return false;
+
+		IUserBorrowBook borrow=new UserBorrowBookJdbc();
+		boolean boo=borrow.judgeBook(book);
+		//boo为true时，书已被借出
+		if(boo) {
+			//书已被借出，返回false
+			return false;
+		}else {
+			//书未被借出，开始执行借书流程
+			boolean b=borrow.borrowBook(user, book);
+			//b的值为true或false,b为true时，借书成功
+			return b;
+		}
+		
 	}
 
 	
@@ -84,6 +98,7 @@ public class UserSer implements IUserService{
 		return false;
 	}
 
+	//借书前判断书是否已经借出，现已整合在借书service方法中
 	@Override
 	public boolean judgeBook(Book book) {
 		// TODO Auto-generated method stub

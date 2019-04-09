@@ -22,7 +22,7 @@ import com.cduest.utils.JdbcUtil;
  *
  */
 
-public class UserBorrowBook implements IUserBorrowBook {
+public class UserBorrowBookJdbc implements IUserBorrowBook {
 
 	private Connection con=null;
 	private PreparedStatement ps=null;
@@ -32,12 +32,6 @@ public class UserBorrowBook implements IUserBorrowBook {
 	
 	
 	//借书
-	/*
-	 * 还缺少借书前判断书是否存在或借出的情况,预计在service层实现
-	 * 或者只给用户查看可以借阅的图书，在用户点击查看所有图书之前
-	 * 把已经在t_borrow中保存的图书剔除
-	 * 
-	 */
 	@Override
 	public boolean borrowBook(User user, Book book) {
 		
@@ -79,14 +73,14 @@ public class UserBorrowBook implements IUserBorrowBook {
 
 		String bid=book.getBid();
 		con=ju.getConnection();
-		String sql="SELECT UID FROM T_BORROW WHERE BID=?";
+		String sql="SELECT BORROWUID FROM T_BORROW WHERE BORROWBID=?";
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1, bid);
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				//如果bid和uid同时存在，就证明书已被借出
-				String dataUid=rs.getNString("uid");
+				String dataUid=rs.getNString("borrowUid");
 				//uid不为空，说明书已被借出，返回true
 				if(!dataUid.equals(null)) {
 					return true;

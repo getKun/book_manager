@@ -12,7 +12,11 @@ import com.cduest.model.User;
 import com.cduest.service.IUserService;
 import com.cduest.service.impl.UserSer;
 
-
+/**
+ * 用户借书的servlet
+ * @author 1630720115
+ *
+ */
 @WebServlet("/BorrowBookServlet")
 public class BorrowBookServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

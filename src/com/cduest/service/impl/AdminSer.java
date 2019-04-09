@@ -2,7 +2,6 @@ package com.cduest.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.cduest.dao.IAdministrators;
 import com.cduest.dao.impl.AdminJdbc;
 import com.cduest.model.Book;
@@ -57,9 +56,19 @@ public class AdminSer implements IAdminService{
 		return list;
 	}
 
+	//管理员登录
 	@Override
 	public boolean login(User user) {
-		// TODO Auto-generated method stub
+
+		String aid=user.getUid();
+		String pwd=user.getPwd();
+		//如果用户登录时输入的账号密码不为空时，调用dao层登录接口查看数据库中账户密码是否正确
+		if(!aid.equals(null)&&!pwd.equals(null)&&!aid.equals("")&&!pwd.equals("")) {
+			boolean b=admin.login(user);
+			//返回值为true或false,b为true时,登录成功
+			return b;
+		}
+		//账号密码为空，直接返回false
 		return false;
 	}
 

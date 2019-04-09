@@ -23,8 +23,16 @@
 		</form>
 		
 	</div>
-	
-<%@ include file="jspFoot.jsp" %>
-	
+
+	<!-- 使用表单跳转管理员登录页面 -->
+	<hr />
+	<div style="float: right;">
+		<form action="admin_login.jsp">
+			<input type="submit" value="图书借阅平台"
+				style="border: 0px; background-color: transparent; font-size: medium;">
+			author:1630720115
+		</form>
+	</div>
+
 </body>
 </html>

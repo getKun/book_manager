@@ -30,6 +30,7 @@ public class AdminSer implements IAdminService{
 	public boolean deleteBook(Book book) {
 
 		boolean boo=admin.deleteBook(book);
+		//boo为true时，删除成功
 		return boo;
 	}
 

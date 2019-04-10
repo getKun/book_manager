@@ -29,10 +29,10 @@ public class DeleteUserServlet extends HttpServlet {
 		boolean boo=delete.deleteUser(user);
 		if(boo) {
 			request.setAttribute("tips", "…æ≥˝≥…π¶£°");
-			request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+			request.getRequestDispatcher("AdminQueryUserServlet").forward(request, response);
 		}else {
 			request.setAttribute("tips", "…æ≥˝ ß∞‹£¨«Î÷ÿ ‘");
-			request.getRequestDispatcher("allUsers.jsp").forward(request, response);
+			request.getRequestDispatcher("AdminQueryUserServlet").forward(request, response);
 		}
 	}
 

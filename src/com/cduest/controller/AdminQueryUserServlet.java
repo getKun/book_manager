@@ -2,36 +2,30 @@ package com.cduest.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.cduest.service.IAdminService;
 import com.cduest.service.impl.AdminSer;
 
 /**
- * 用户查询全部图书的servlet
- * @author 1630720115
+ * 管理员查询用户servlet
+ * @author 49520
  *
  */
-
-@WebServlet("/QueryAllBookServlet")
-public class QueryAllBookServlet extends HttpServlet {
+@WebServlet("/AdminQueryUserServlet")
+public class AdminQueryUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		IAdminService admin=new AdminSer();
-		ArrayList<Object> list=new ArrayList<Object>();
-		list=(ArrayList<Object>) admin.queryAllBook();
-		//把存放book对象的list数组存入session
-		request.setAttribute("allBook", list);
-		//跳转main_page
-		request.getRequestDispatcher("borrow_book.jsp").forward(request, response);
+		ArrayList<Object> list=(ArrayList<Object>) admin.queryAllUser();
+		request.setAttribute("allUser", list);
+		request.getRequestDispatcher("allUsers.jsp").forward(request, response);
 	}
 
 

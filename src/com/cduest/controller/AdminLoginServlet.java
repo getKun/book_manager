@@ -33,6 +33,8 @@ public class AdminLoginServlet extends HttpServlet {
 		boolean boo=login.login(user);
 		if(boo) {
 			//登录成功，跳转管理员主页
+			request.getSession().setAttribute("admin", user);
+			request.getRequestDispatcher("admin_personal.jsp").forward(request, response);
 		}else {
 			//登录失败，刷新当前页面
 			request.getRequestDispatcher("admin_login.jsp").forward(request, response);

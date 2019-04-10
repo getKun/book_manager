@@ -31,10 +31,13 @@ public class BorrowBookServlet extends HttpServlet {
 		boolean boo=borrow.borrowBook(user, book);
 		//boo为true时，借书成功，跳转成功页面
 		if(boo) {
-			request.getRequestDispatcher("borrow_success.jsp").forward(request, response);
+			//页面对话
+			request.getSession().setAttribute("word", "预约成功！请凭您的ID，24小时内到图书馆借阅您的图书");
+			request.getRequestDispatcher("borrow_words.jsp").forward(request, response);
 		}else {
 			//借书失败，跳转失败页面
-			request.getRequestDispatcher("borrow_fail.jsp").forward(request, response);
+			request.getSession().setAttribute("word", "预约失败(っ °Д °;)っ，书已被借出或是其他原因，请重试");
+			request.getRequestDispatcher("borrow_words.jsp").forward(request, response);
 		}
 		
 	}

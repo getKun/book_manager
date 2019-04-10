@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>借阅失败！</title>
+<title>图书借阅系统</title>
 </head>
 <body>
-	fail!
+	<div>
+		${sessionScope.word }<br>
+		<a href="QueryAllBookServlet">继续借书</a>
+	</div>
+	<%@ include file="jspFoot.jsp" %>
 </body>
 </html>

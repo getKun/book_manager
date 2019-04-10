@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="admin_jsp_head.jsp" %>
 	<h3>已注册的全部用户</h3>
-	<div>
+	<div style="float: left;">
 		<table>
 			<c:forEach items="${allUser }" var="user">
 				<tr>
@@ -27,6 +27,9 @@
 			</c:forEach>
 		</table>
 		${tips }
+	</div>
+	<div style="float: right;">
+		<!-- 添加用户 -->
 	</div>
 	<%@ include file="jspFoot.jsp" %>
 </body>

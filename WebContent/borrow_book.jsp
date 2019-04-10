@@ -22,7 +22,8 @@
 					<td>${book.author }</td>
 					<td>${book.press }</td>
 					<td>
-						<form action="BorrowBookServlet?bid=${book.bid }" method="post">
+						<form action="BorrowBookServlet?bid=${book.bid }" method="post" 
+						onsubmit="return confirm('确定要借阅这本书吗？');">
 							<input type="submit" value="借阅"
 								style="border: 0px; background-color: transparent; font-size: medium;">
 						</form>

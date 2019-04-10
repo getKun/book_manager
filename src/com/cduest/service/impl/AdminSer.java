@@ -18,16 +18,19 @@ public class AdminSer implements IAdminService{
 	IAdministrators admin=new AdminJdbc();
 	User user=new User();
 
+	//添加图书
 	@Override
 	public boolean addBook(Book book) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+	//删除图书
 	@Override
 	public boolean deleteBook(Book book) {
-		// TODO Auto-generated method stub
-		return false;
+
+		boolean boo=admin.deleteBook(book);
+		return boo;
 	}
 
 	//删除用户
@@ -72,6 +75,8 @@ public class AdminSer implements IAdminService{
 		return false;
 	}
 
+	
+	//下面两个方法为实现的user接口中的注册和注册前判断的方法
 	@Override
 	public boolean register(User user) {
 		// TODO Auto-generated method stub

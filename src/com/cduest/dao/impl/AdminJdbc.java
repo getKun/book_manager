@@ -143,6 +143,31 @@ public class AdminJdbc implements IAdministrators{
 	//É¾³ýÍ¼Êé
 	@Override
 	public boolean deleteBook(Book book) {
+		
+		String bid=book.getBid();
+		con=ju.getConnection();
+		String sql="DELETE FROM T_BOOK WHERE BID=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, bid);
+			int i=ps.executeUpdate();
+			if(i!=-1) {
+				//É¾³ý³É¹¦£¬·µ»Øtrue
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, null);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		//É¾³ýÊ§°Ü
 		return false;
 		
 	}

@@ -10,7 +10,7 @@ import com.cduest.model.User;
  * @author 1630720115
  *
  */
-public interface IAdministratorsDao extends IUserLoginAndRegisterDao{
+public interface IAdministratorsDao{
 
 	boolean addBook(Book book);
 	
@@ -21,6 +21,10 @@ public interface IAdministratorsDao extends IUserLoginAndRegisterDao{
 	List<Object> queryAllUser();
 	
 	List<Object> queryAllBook();
+
+	boolean login(User user);
+
+	boolean register(User user);
 	
 	
 }

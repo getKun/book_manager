@@ -95,16 +95,6 @@ public class AdminJdbc implements IAdministratorsDao{
 		}
 		return false;
 	}
-
-	
-	//添加管理员前判断是否已有相同的管理员账户,现弃用
-	@Override
-	public boolean registerJudge(User user) {
-		
-		return false;
-	}
-
-	
 	//管理员添加图书
 	@Override
 	public boolean addBook(Book book) {

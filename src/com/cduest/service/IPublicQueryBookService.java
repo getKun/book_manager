@@ -1,8 +1,6 @@
 package com.cduest.service;
 
 import java.util.ArrayList;
-
-import com.cduest.model.Book;
 import com.cduest.model.User;
 
 /**
@@ -12,7 +10,7 @@ import com.cduest.model.User;
  */
 public interface IPublicQueryBookService {
 
-	ArrayList<Book> queryAllBorrowedBook();
+	ArrayList<Object> queryAllBorrowedBook();
 	
-	ArrayList<Book> queryUserBorrowedBook(User user);
+	ArrayList<Object> queryUserBorrowedBook(User user);
 }

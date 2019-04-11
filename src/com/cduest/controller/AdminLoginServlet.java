@@ -34,7 +34,8 @@ public class AdminLoginServlet extends HttpServlet {
 		if(boo) {
 			//登录成功，跳转管理员主页
 			request.getSession().setAttribute("admin", user);
-			request.getRequestDispatcher("admin_personal.jsp").forward(request, response);
+			//跳转QueryAllBorrowedBookServlet，先查询所有已借出的图书，在QueryAllBorrowedBookServlet中跳转管理员主页
+			request.getRequestDispatcher("QueryAllBorrowedBookServlet").forward(request, response);
 		}else {
 			//登录失败，刷新当前页面
 			request.getRequestDispatcher("admin_login.jsp").forward(request, response);

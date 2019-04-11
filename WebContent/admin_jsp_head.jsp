@@ -4,7 +4,7 @@
 <div style="float: right;">
 	<table>
 		<tr>
-			<td>管理员 <a href="admin_personal.jsp">${sessionScope.admin.uid }</a></td>
+			<td>管理员 <a href="QueryAllBorrowedBookServlet">${sessionScope.admin.uid }</a></td>
 			<td><a href="admin_login.jsp">退出登录</a></td>
 			<td>
 				<form action="AdminQueryBookServlet" method="post">

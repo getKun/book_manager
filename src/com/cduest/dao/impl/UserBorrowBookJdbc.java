@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.cduest.dao.IUserBorrowBook;
+import com.cduest.dao.IUserBorrowBookDao;
 
 import com.cduest.model.Book;
 import com.cduest.model.User;
@@ -22,7 +22,7 @@ import com.cduest.utils.JdbcUtil;
  *
  */
 
-public class UserBorrowBookJdbc implements IUserBorrowBook {
+public class UserBorrowBookJdbc implements IUserBorrowBookDao {
 
 	private Connection con=null;
 	private PreparedStatement ps=null;

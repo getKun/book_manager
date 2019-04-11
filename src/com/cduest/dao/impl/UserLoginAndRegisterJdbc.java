@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.cduest.dao.IUserLoginAndRegister;
+import com.cduest.dao.IUserLoginAndRegisterDao;
 
 import com.cduest.model.User;
 import com.cduest.utils.JdbcUtil;
@@ -20,7 +20,7 @@ import com.cduest.utils.JdbcUtil;
  * @author 1630720115
  *
  */
-public class UserLoginAndRegisterJdbc implements IUserLoginAndRegister {
+public class UserLoginAndRegisterJdbc implements IUserLoginAndRegisterDao {
 
 	private Connection con=null;
 	private PreparedStatement ps=null;

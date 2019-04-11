@@ -7,7 +7,7 @@ import com.cduest.model.User;
  * @author 1630720115
  *
  */
-public interface IUserLoginAndRegister {
+public interface IUserLoginAndRegisterDao {
 
 	boolean login(User user);
 	boolean register(User user);

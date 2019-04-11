@@ -8,7 +8,7 @@ import com.cduest.model.User;
  * @author 1630720115
  *
  */
-public interface IUserBorrowBook {
+public interface IUserBorrowBookDao {
 
 	boolean borrowBook(User user,Book book);
 	

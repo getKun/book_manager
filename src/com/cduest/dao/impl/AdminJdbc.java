@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cduest.dao.IAdministrators;
+import com.cduest.dao.IAdministratorsDao;
 import com.cduest.model.Book;
 import com.cduest.model.User;
 import com.cduest.utils.JdbcUtil;
@@ -20,7 +20,7 @@ import com.cduest.utils.JdbcUtil;
  * @author 1630720115
  *
  */
-public class AdminJdbc implements IAdministrators{
+public class AdminJdbc implements IAdministratorsDao{
 	
 	private Connection con;
 	private PreparedStatement ps;

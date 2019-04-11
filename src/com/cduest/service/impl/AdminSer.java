@@ -2,7 +2,7 @@ package com.cduest.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.cduest.dao.IAdministrators;
+import com.cduest.dao.IAdministratorsDao;
 import com.cduest.dao.impl.AdminJdbc;
 import com.cduest.model.Book;
 import com.cduest.model.User;
@@ -15,8 +15,7 @@ import com.cduest.service.IAdminService;
  */
 public class AdminSer implements IAdminService{
 	
-	IAdministrators admin=new AdminJdbc();
-	User user=new User();
+	private IAdministratorsDao admin=new AdminJdbc();
 
 	//添加图书
 	@Override
@@ -77,17 +76,12 @@ public class AdminSer implements IAdminService{
 	}
 
 	
-	//下面两个方法为实现的user接口中的注册和注册前判断的方法
+	//添加管理员
 	@Override
 	public boolean register(User user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public boolean registerJudge(User user) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 }

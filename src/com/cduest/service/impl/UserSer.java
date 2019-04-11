@@ -1,7 +1,7 @@
 package com.cduest.service.impl;
 
-import com.cduest.dao.IUserBorrowBook;
-import com.cduest.dao.IUserLoginAndRegister;
+import com.cduest.dao.IUserBorrowBookDao;
+import com.cduest.dao.IUserLoginAndRegisterDao;
 import com.cduest.dao.impl.UserBorrowBookJdbc;
 import com.cduest.dao.impl.UserLoginAndRegisterJdbc;
 import com.cduest.model.Book;
@@ -17,6 +17,7 @@ public class UserSer implements IUserService{
 	
 	User user=new User();
 
+	//用户登录
 	@Override
 	public boolean login(User user) {
 
@@ -24,7 +25,7 @@ public class UserSer implements IUserService{
 		String pwd=user.getPwd();
 		//如果用户登录时输入的账号密码不为空时，调用dao层登录接口查看数据库中账户密码是否正确
 		if(!uid.equals(null)&&!pwd.equals(null)&&!uid.equals("")&&!pwd.equals("")) {
-			IUserLoginAndRegister login=new UserLoginAndRegisterJdbc();
+			IUserLoginAndRegisterDao login=new UserLoginAndRegisterJdbc();
 			boolean b=login.login(user);
 			//返回值为true或false
 			return b;
@@ -33,6 +34,7 @@ public class UserSer implements IUserService{
 		return false;
 	}
 
+	//用户注册
 	@Override
 	public boolean register(User user) {
 
@@ -40,7 +42,7 @@ public class UserSer implements IUserService{
 		String pwd=user.getPwd();
 		if(!uid.equals(null)&&!pwd.equals(null)&&!uid.equals("")&&!pwd.equals("")) {
 			//首先判断账号是否已被注册
-			IUserLoginAndRegister ser=new UserLoginAndRegisterJdbc();
+			IUserLoginAndRegisterDao ser=new UserLoginAndRegisterJdbc();
 			boolean b=ser.registerJudge(user);
 			//b为true时，账号已存在
 			if(b) {
@@ -61,21 +63,11 @@ public class UserSer implements IUserService{
 		return false;
 	}
 
-	
-	//继承的判断账号是否存在的方法，现合并在注册service中
-	@Override
-	public boolean registerJudge(User user) {
-
-		
-		return false;
-	}
-
-	
 	//借书
 	@Override
 	public boolean borrowBook(User user, Book book) {
 
-		IUserBorrowBook borrow=new UserBorrowBookJdbc();
+		IUserBorrowBookDao borrow=new UserBorrowBookJdbc();
 		boolean boo=borrow.judgeBook(book);
 		//boo为true时，书已被借出
 		if(boo) {
@@ -90,19 +82,10 @@ public class UserSer implements IUserService{
 		
 	}
 
-	
 	//还书
 	@Override
 	public boolean returnBook(User user, Book book) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	//借书前判断书是否已经借出，现已整合在借书service方法中
-	@Override
-	public boolean judgeBook(Book book) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

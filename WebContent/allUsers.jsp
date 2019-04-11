@@ -30,7 +30,7 @@
 	</div>
 	<div style="float: right;">
 		<!-- 添加用户 -->
-	</div>
+	</div><br>
 	<%@ include file="jspFoot.jsp" %>
 </body>
 </html>

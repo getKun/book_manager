@@ -31,7 +31,7 @@
 	${point }
 	<div style="float: right;">
 		<!-- 添加图书 -->
-	</div>
+	</div><br>
 	<%@ include file="jspFoot.jsp"%>
 </body>
 </html>

@@ -11,5 +11,6 @@
 	<div>
 		
 	</div>
+	<%@ include file="jspFoot.jsp" %>
 </body>
 </html>

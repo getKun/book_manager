@@ -7,6 +7,7 @@
 <title>图书借阅系统</title>
 </head>
 <body>
+	<%@ include file="jspHead.jsp" %>
 	<div>
 		${sessionScope.word }<br>
 		<a href="QueryAllBookServlet">继续借书</a>

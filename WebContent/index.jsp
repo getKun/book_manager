@@ -25,8 +25,8 @@
 	</div>
 
 	<!-- 使用表单跳转管理员登录页面 -->
+	<div style="float: right; position: absolute; bottom: 0px;">
 	<hr />
-	<div style="float: right;">
 		<form action="admin_login.jsp">
 			<input type="submit" value="图书借阅平台"
 				style="border: 0px; background-color: transparent; font-size: medium;">

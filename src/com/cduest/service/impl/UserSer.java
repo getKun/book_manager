@@ -85,7 +85,9 @@ public class UserSer implements IUserService{
 	//ªπ È
 	@Override
 	public boolean returnBook(User user, Book book) {
-		// TODO Auto-generated method stub
-		return false;
+
+		IUserBorrowBookDao dao=new UserBorrowBookJdbc();
+		boolean boo=dao.returnBook(user, book);
+		return boo;
 	}
 }

@@ -64,6 +64,30 @@ public class UserBorrowBookJdbc implements IUserBorrowBookDao {
 	@Override
 	public boolean returnBook(User user, Book book) {
 		
+		String uid=user.getUid();
+		String bid=book.getBid();
+		con=ju.getConnection();
+		String sql="DELETE FROM T_BORROW WHERE BORROWUID=? AND BORROWBID=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, uid);
+			ps.setString(2, bid);
+			int i=ps.executeUpdate();
+			if(i!=-1) {
+				//还书成功
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, null);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 

@@ -23,8 +23,13 @@
 					<td>${msg.bid }</td>
 					<td>${msg.date }</td>
 					<td>
-						<form action="">
-							<!-- 还书选项 -->
+						<!-- 还书选项 -->
+						<form action="ReturnBookServlet" method="post"
+							onsubmit="return confirm('请收到图书后再点击还书');">
+							<input type="hidden" name="uid" value=${msg.uid } >
+							<input type="hidden" name="bid" value=${msg.bid } >
+							<input type="submit" value="用户还书"
+								style="border: 0px; background-color: transparent; font-size: medium;">
 						</form>
 					</td>
 				</tr>

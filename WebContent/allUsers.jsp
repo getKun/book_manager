@@ -12,6 +12,10 @@
 	<h3>已注册的全部用户</h3>
 	<div style="float: left;">
 		<table>
+			<tr>
+				<td>用户名</td>
+				<td>密码</td>
+			</tr>
 			<c:forEach items="${allUser }" var="user">
 				<tr>
 					<td>${user.uid }</td>

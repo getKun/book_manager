@@ -15,4 +15,6 @@ public interface IUserBorrowBookDao {
 	boolean returnBook(User user,Book book) ;
 	
 	boolean judgeBook(Book book);
+	
+	boolean judgeUserBorrowedBook(User user);
 }

@@ -126,4 +126,12 @@ public class UserBorrowBookJdbc implements IUserBorrowBookDao {
 		return false;
 	}
 
+	//用户借书前判断是否有未还的书，每位用户至多只能借一本
+	@Override
+	public boolean judgeUserBorrowedBook(User user) {
+
+		
+		return false;
+	}
+
 }

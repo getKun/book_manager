@@ -12,6 +12,12 @@
 	<h3>收藏的全部图书</h3>
 	<div style="float: left;">
 		<table>
+			<tr>
+				<td>书名</td>
+				<td>作者</td>
+				<td>出版社</td>
+			</tr>
+
 			<c:forEach items="${allBook }" var="book">
 				<tr>
 					<td>${book.bid }</td>

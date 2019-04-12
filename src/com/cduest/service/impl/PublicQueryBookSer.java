@@ -26,11 +26,12 @@ public class PublicQueryBookSer implements IPublicQueryBookService {
 		return list;
 	}
 
+	//查询某个用户借出的图书
 	@Override
 	public ArrayList<Object> queryUserBorrowedBook(User user) {
 		
-		
-		return null;
+		list=dao.queryUserBorrowedBook(user);
+		return list;
 	}
 
 }

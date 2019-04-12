@@ -13,7 +13,7 @@
 				</form>
 			</td>
 			<td>
-				<form action="AdminQueryUserServlet" >
+				<form action="AdminQueryUserServlet" method="post">
 					<input type="submit" value="查询用户"
 						style="border: 0px; background-color: transparent; font-size: medium;">
 				</form>

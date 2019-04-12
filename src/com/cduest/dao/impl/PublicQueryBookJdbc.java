@@ -60,6 +60,31 @@ public class PublicQueryBookJdbc implements IPublicQueryBookDao {
 	@Override
 	public ArrayList<Object> queryUserBorrowedBook(User user) {
 		
+		String uid=user.getUid();
+		con=ju.getConnection();
+		String sql="SELECT BORROWBID,BORROWDATE FROM T_BORROW WHERE BORROWUID=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, uid);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				String bid=rs.getString("borrowBid");
+				String date=rs.getString("borrowDate");
+				Borrow borrow=new Borrow("", bid, date);
+				list.add(borrow);
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, rs);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		return null;
 	}

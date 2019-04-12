@@ -30,10 +30,10 @@ public class LoginServlet extends HttpServlet {
 		boolean b=login.login(user);
 		//b为true时，登录成功
 		if(b) {
-			
+			//登陆成功，跳转QueryUserBorrowedBookServlet查询尚未归还的图书
 			HttpSession session=request.getSession();
 			session.setAttribute("user", user);
-			request.getRequestDispatcher("personal.jsp").forward(request, response);
+			request.getRequestDispatcher("QueryUserBorrowedBookServlet").forward(request, response);
 			
 		}else {
 			//登录失败，刷新当前页面

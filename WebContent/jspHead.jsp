@@ -4,12 +4,8 @@
 <div style="float: right;">
 	<table>
 		<tr>
-			<td><form action="QueryAllBookServlet" method="post">
-					<input type="submit" value="图书借阅平台"
-						style="border: 0px; background-color: transparent; font-size: medium;">
-				</form></td>
-			<td>你好，<a href="personal.jsp">${sessionScope.user.uid }</a>
-			</td>
+			<td>你好，<a href="QueryUserBorrowedBookServlet">${sessionScope.user.uid }</a></td>
+			<td><a href="QueryAllBookServlet">图书借阅平台</a></td>
 			<td><a href="index.jsp">退出登录</a></td>
 		</tr>
 	</table>

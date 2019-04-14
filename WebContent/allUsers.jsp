@@ -33,8 +33,24 @@
 		${tips }
 	</div>
 	<div style="float: right;">
-		<!-- 添加用户 -->
-	</div><br>
+		<form action="FuzzyQueryUserServlet" method="post">
+			查询用户<input type="text" name="uid">
+			<input type="submit" value="查询">
+		</form>
+		<table>
+			<tr>
+				<td>账号</td>
+				<td>密码</td>
+			</tr>
+			<c:forEach items="${fuzzy_user }" var="u">
+				<tr>
+					<td>${u.uid }</td>
+					<td>${u.pwd }</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	<br>
 	<%@ include file="jspFoot.jsp" %>
 </body>
 </html>

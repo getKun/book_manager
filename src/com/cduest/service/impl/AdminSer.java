@@ -24,7 +24,7 @@ public class AdminSer implements IAdminService{
 		String bid=book.getBid();
 		String author=book.getAuthor();
 		String press=book.getPress();
-		if(bid.equals(null)&&author.equals(null)&&press.equals(null)&&bid.equals("")&&author.equals("")&&press.equals("")) {
+		if(!bid.equals(null)&&!author.equals(null)&&!press.equals(null)&&!bid.equals("")&&!author.equals("")&&!press.equals("")) {
 			
 			boolean boo=admin.addBook(book);
 			//boo为true时，添加成功

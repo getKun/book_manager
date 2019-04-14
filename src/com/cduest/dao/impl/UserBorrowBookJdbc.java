@@ -130,7 +130,30 @@ public class UserBorrowBookJdbc implements IUserBorrowBookDao {
 	@Override
 	public boolean judgeUserBorrowedBook(User user) {
 
+		String uid=user.getUid();
+		con=ju.getConnection();
+		String sql="SELECT BORROWBID FROM T_BORROW WHERE BORROWUID=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, uid);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				//用户有尚未归还的图书
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, rs);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
+		//用户没有尚未归还的书
 		return false;
 	}
 

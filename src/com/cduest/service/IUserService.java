@@ -15,7 +15,7 @@ public interface IUserService {
 
 	boolean register(User user);
 
-	boolean borrowBook(User user, Book book);
+	int borrowBook(User user, Book book);
 
 	boolean returnBook(User user, Book book);
 

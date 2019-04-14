@@ -28,15 +28,23 @@ public class BorrowBookServlet extends HttpServlet {
 		User user=(User) request.getSession().getAttribute("user");
 		Book book=new Book(bid, "", "");
 		IUserService borrow=new UserSer();
-		boolean boo=borrow.borrowBook(user, book);
+		int i=borrow.borrowBook(user, book);
 		//boo为true时，借书成功，跳转成功页面
-		if(boo) {
-			//页面对话
-			request.getSession().setAttribute("word", "预约成功！请凭您的ID，24小时内到图书馆借阅您的图书");
+		if(i==0) {
+			//页面对话,i=0时，用户还有尚未归还的图书，预约失败
+			request.getSession().setAttribute("word", "预约失败，您还有尚未归还的图书！");
 			request.getRequestDispatcher("borrow_words.jsp").forward(request, response);
-		}else {
-			//借书失败，跳转失败页面
-			request.getSession().setAttribute("word", "预约失败(っ °Д °;)っ，书已被借出或是其他原因，请重试");
+		}else if(i==1){
+			//借书失败，i=1时，书已被借出，预约失败
+			request.getSession().setAttribute("word", "预约失败(っ °Д °;)っ，书已被借出！");
+			request.getRequestDispatcher("borrow_words.jsp").forward(request, response);
+		}else if(i==2) {
+			//借书成功
+			request.getSession().setAttribute("word", "预约成功，请凭您的ID,到图书馆借走您预约的图书");
+			request.getRequestDispatcher("borrow_words.jsp").forward(request, response);
+		}else if(i==3) {
+			//系统错误，请重试
+			request.getSession().setAttribute("word", "系统错误，请重试");
 			request.getRequestDispatcher("borrow_words.jsp").forward(request, response);
 		}
 		

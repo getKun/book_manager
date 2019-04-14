@@ -65,20 +65,39 @@ public class UserSer implements IUserService{
 
 	//借书
 	@Override
-	public boolean borrowBook(User user, Book book) {
+	public int borrowBook(User user, Book book) {
 
-		IUserBorrowBookDao borrow=new UserBorrowBookJdbc();
-		boolean boo=borrow.judgeBook(book);
-		//boo为true时，书已被借出
+		/*
+		 * 本方法中会实现dao层接口的三个方法
+		 * 1.判断用户是否有尚未归还的图书，每位用户至多只能接一本书
+		 * 2.判断用户预约的书是否已被借出
+		 * 3.执行预约流程
+		 */
+		IUserBorrowBookDao borrow = new UserBorrowBookJdbc();
+		boolean boo=borrow.judgeUserBorrowedBook(user);
 		if(boo) {
-			//书已被借出，返回false
-			return false;
+			//用户有书未归还
+			return 0;
 		}else {
-			//书未被借出，开始执行借书流程
-			boolean b=borrow.borrowBook(user, book);
-			//b的值为true或false,b为true时，借书成功
-			return b;
+			//用户没有未归还的书，开始判断书是否被借出
+			boolean bo=borrow.judgeBook(book);
+			if(bo) {
+				//书被借出，返回1
+				return 1;
+			}else {
+				//书未被借出，执行借书流程
+				boolean b=borrow.borrowBook(user, book);
+				if(b) {
+					//借书成功，返回2
+					return 2;
+				}else {
+					//借书失败
+					return 3;
+				}
+			}
+			
 		}
+		
 		
 	}
 

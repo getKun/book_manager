@@ -20,8 +20,19 @@ public class AdminSer implements IAdminService{
 	//添加图书
 	@Override
 	public boolean addBook(Book book) {
-		// TODO Auto-generated method stub
+		
+		String bid=book.getBid();
+		String author=book.getAuthor();
+		String press=book.getPress();
+		if(bid.equals(null)&&author.equals(null)&&press.equals(null)&&bid.equals("")&&author.equals("")&&press.equals("")) {
+			
+			boolean boo=admin.addBook(book);
+			//boo为true时，添加成功
+			return boo;
+		}
 		return false;
+		
+		
 	}
 
 	//删除图书

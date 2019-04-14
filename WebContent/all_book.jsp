@@ -36,7 +36,27 @@
 	</div>
 	${point }
 	<div style="float: right;">
-		<!-- 添加图书 -->
+		<h4>添加图书</h4>
+		<form action="AdminAddBookServlet" method="post">
+			<table>
+				<tr>
+					<td>书名</td>
+					<td><input type="text" name="bid"></td>
+				</tr>
+				<tr>
+					<td>作者</td>
+					<td><input type="text" name="author"></td>
+				</tr>
+				<tr>
+					<td>出版社</td>
+					<td><input type="text" name="press"></td>
+				</tr>
+				<tr>
+					<td>${add }</td>
+					<td><input type="submit" value="添加"></td>
+				</tr>
+			</table>
+		</form>
 	</div><br>
 	<%@ include file="jspFoot.jsp"%>
 </body>

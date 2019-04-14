@@ -95,6 +95,7 @@ public class AdminJdbc implements IAdministratorsDao{
 		}
 		return false;
 	}
+	
 	//管理员添加图书
 	@Override
 	public boolean addBook(Book book) {

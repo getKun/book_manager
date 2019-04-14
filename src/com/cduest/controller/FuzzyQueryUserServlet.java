@@ -30,8 +30,8 @@ public class FuzzyQueryUserServlet extends HttpServlet {
 		IFuzzyQueryService ser=new FuzzyQuerySer();
 		ArrayList<Object> list=ser.userFuzzyQuery(uid);
 		if(list==null||list.size()==0) {
-			request.setAttribute("fuzzy_user", "没有这个用户");
-			request.getRequestDispatcher("AdminQueryUserServlet").forward(request, response);
+			//没有查询到用户
+			request.getRequestDispatcher("fuzzy_query_user_null.jsp").forward(request, response);
 		}else {
 			request.setAttribute("fuzzy_user", list);
 			request.getRequestDispatcher("AdminQueryUserServlet").forward(request, response);

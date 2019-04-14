@@ -5,6 +5,11 @@ import com.cduest.dao.IFuzzyQueryDao;
 import com.cduest.dao.impl.FuzzyQueryJdbc;
 import com.cduest.service.IFuzzyQueryService;
 
+/**
+ * 模糊查询的service实现类
+ * @author 1630720115
+ *
+ */
 public class FuzzyQuerySer implements IFuzzyQueryService {
 
 	private IFuzzyQueryDao dao=new FuzzyQueryJdbc();
@@ -21,9 +26,14 @@ public class FuzzyQuerySer implements IFuzzyQueryService {
 		return null;
 	}
 
+	//模糊查询图书
 	@Override
 	public ArrayList<Object> bookFuzzyQuery(String bid) {
-		// TODO Auto-generated method stub
+		
+		if(!bid.equals(null)&&!bid.equals("")) {
+			list=dao.bookFuzzyQuery(bid);
+			return list;
+		}
 		return null;
 	}
 

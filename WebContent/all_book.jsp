@@ -58,6 +58,27 @@
 			</table>
 		</form>
 	</div><br>
+	<div style="float: right;">
+		<form action="FuzzyQueryBookServlet" method="post">
+			查询图书<input type="text" name="bid">
+			<input type="submit" value="查询">
+		</form>
+		<table>
+			<tr>
+				<td>书名</td>
+				<td>作者</td>
+				<td>出版社</td>
+			</tr>
+			<c:forEach items="${fuzzy_book }" var="b">
+				<tr>
+					<td>${b.bid }</td>
+					<td>${b.author }</td>
+					<td>${b.press }</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	<br>
 	<%@ include file="jspFoot.jsp"%>
 </body>
 </html>

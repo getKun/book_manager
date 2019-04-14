@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import com.cduest.dao.IFuzzyQueryDao;
+import com.cduest.model.Book;
 import com.cduest.model.User;
 import com.cduest.utils.JdbcUtil;
 
@@ -58,7 +59,31 @@ public class FuzzyQueryJdbc implements IFuzzyQueryDao {
 	@Override
 	public ArrayList<Object> bookFuzzyQuery(String bid) {
 		
-		
+		con=ju.getConnection();
+		String sql="SELECT * FROM T_BOOK WHERE BID LIKE ?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, "%"+bid+"%");
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				String dataBid=rs.getString("bid");
+				String dataAuthor=rs.getString("author");
+				String dataPress=rs.getString("press");
+				Book book=new Book(dataBid, dataAuthor, dataPress);
+				list.add(book);
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				ju.close(con, ps, rs);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		return null;
 	}
 

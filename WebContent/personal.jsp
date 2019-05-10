@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>我的主页</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 	<%@include file="jspHead.jsp" %>
 
 	<div>

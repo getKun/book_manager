@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>查询图书</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 	<%@ include file="admin_jsp_head.jsp"%>
 	<h3>收藏的全部图书</h3>
 	<div style="float: left;">

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>管理员登录</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 	<div>
 
 		<h1>你好，管理员</h1>

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>请注册</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 
 	<%@ include file="loginAndRegisterHead.jsp" %>
 	<div>

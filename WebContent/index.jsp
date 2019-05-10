@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>请登录</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 
 <!-- 当前页面仅用于测试登录注册功能，不代表最终样式 -->
 

@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>图书借阅平台</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 	<%@ include file="jspHead.jsp"%>
 	<div>
 		<table>

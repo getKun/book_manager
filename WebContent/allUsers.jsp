@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>查询用户</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 	<%@ include file="admin_jsp_head.jsp" %>
 	<h3>已注册的全部用户</h3>
 	<div style="float: left;">

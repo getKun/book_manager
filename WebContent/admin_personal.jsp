@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>管理员主页</title>
 </head>
-<body>
+<body style="background: #E6E6FA">
 	<%@ include file="admin_jsp_head.jsp"%>
 	<div>
 		<h4>现在仍被借出的图书</h4>
